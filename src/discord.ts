@@ -44,6 +44,8 @@ Bubble.once(Events.ClientReady, async (c) => {
         Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
         { body: commandList }
       );
+
+      console.log(`Successfully loaded application (/) commands`);
     }
   } catch (error) {
     console.log(error);
