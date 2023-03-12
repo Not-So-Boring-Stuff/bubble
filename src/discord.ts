@@ -29,6 +29,9 @@ Bubble.commands = new Collection();
 
 // When the client is ready, run this code (only once)
 Bubble.once(Events.ClientReady, async (c) => {
+  /* eslint-disable no-console */
+  console.log(`Ready! Logged in as ${c.user.tag}`);
+
   try {
     const commandList: SlashCommandBuilder[] = [];
     const commands = Commands as { [key: string]: Command };
@@ -38,9 +41,10 @@ Bubble.once(Events.ClientReady, async (c) => {
     });
 
     if (CLIENT_ID && GUILD_ID) {
-      await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
-        body: commandList
-      });
+      const data = await rest.put(
+        Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
+        { body: commandList }
+      );
     }
   } catch (error) {
     /* eslint-disable no-console */
