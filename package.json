@@ -1,0 +1,44 @@
+{
+  "packageManager": "yarn@3.4.1",
+  "name": "bubble-bot",
+  "version": "1.0.0",
+  "description": "An open-source discord bot",
+  "main": "src/index.js",
+  "repository": "https://github.com/Not-So-Boring-Stuff/bubble-bot.git",
+  "author": "hiddenstack",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx nodemon",
+    "build": "rimraf ./build && tsc",
+    "start": "yarn run build && node build/index.js",
+    "lint": "eslint . --ext .ts",
+    "lint-and-fix": "eslint . --ext .ts --fix",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+  },
+  "dependencies": {
+    "discord.js": "14.7.1",
+    "dotenv": "16.0.3",
+    "openai": "3.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "18.15.0",
+    "@typescript-eslint/eslint-plugin": "5.54.1",
+    "@typescript-eslint/parser": "5.54.1",
+    "eslint": "8.36.0",
+    "eslint-config-prettier": "8.7.0",
+    "eslint-plugin-no-loops": "0.3.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.0",
+    "nodemon": "2.0.21",
+    "prettier": "2.8.4",
+    "rimraf": "4.4.0",
+    "ts-node": "10.9.1",
+    "typescript": "4.9.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run prettier-format && yarn run lint-staged"
+    }
+  }
+}
