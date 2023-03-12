@@ -13,7 +13,8 @@
     "start": "yarn run build && node build/index.js",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "prepare": "husky install"
   },
   "dependencies": {
     "discord.js": "14.7.1",
@@ -28,7 +29,7 @@
     "eslint-config-prettier": "8.7.0",
     "eslint-plugin-no-loops": "0.3.0",
     "eslint-plugin-prettier": "4.2.1",
-    "husky": "8.0.3",
+    "husky": "^8.0.0",
     "lint-staged": "13.2.0",
     "nodemon": "2.0.21",
     "prettier": "2.8.4",
