@@ -9,10 +9,7 @@ import {
   Command,
   SlashCommandBuilder
 } from 'discord.js';
-import dotenv from 'dotenv';
 import * as Commands from './commands';
-
-dotenv.config();
 
 const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN as string;
 const rest = new REST({ version: '10' }).setToken(DISCORD_BOT_TOKEN);
@@ -41,10 +38,9 @@ Bubble.once(Events.ClientReady, async (c) => {
     });
 
     if (CLIENT_ID && GUILD_ID) {
-      const data = await rest.put(
-        Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
-        { body: commandList }
-      );
+      await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
+        body: commandList
+      });
     }
   } catch (error) {
     /* eslint-disable no-console */

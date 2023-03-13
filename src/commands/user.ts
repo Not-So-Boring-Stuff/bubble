@@ -4,9 +4,6 @@ import {
   SlashCommandBuilder
 } from 'discord.js';
 
-import * as dotenv from 'dotenv';
-dotenv.config();
-
 export const User: Command = {
   data: new SlashCommandBuilder()
     .setName('user')

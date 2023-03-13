@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
-import { Bubble } from './discord';
-
 dotenv.config();
+
+import { Bubble } from './discord';
 
 const { DISCORD_BOT_TOKEN } = process.env;
 
@@ -9,6 +9,7 @@ const { DISCORD_BOT_TOKEN } = process.env;
   try {
     await Bubble.login(DISCORD_BOT_TOKEN);
   } catch (error) {
+    /* eslint-disable no-console */
     console.log(error);
     process.exit(1);
   }
