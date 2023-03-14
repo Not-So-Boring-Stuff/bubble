@@ -31,6 +31,7 @@ Bubble.once(Events.ClientReady, async (c) => {
 
   try {
     const commandList: SlashCommandBuilder[] = [];
+    console.log(commandList);
     const commands = Commands as { [key: string]: Command };
     Object.keys(commands).map((name: string) => {
       Bubble.commands?.set(name.toLowerCase(), commands[name]);
