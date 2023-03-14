@@ -9,7 +9,7 @@ const { DISCORD_BOT_TOKEN } = process.env;
   try {
     await Bubble.login(DISCORD_BOT_TOKEN);
   } catch (error) {
-    /* eslint-disable no-console */
+    /* eslint-disable-next-line no-console */
     console.log(error);
     process.exit(1);
   }

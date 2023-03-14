@@ -26,12 +26,11 @@ Bubble.commands = new Collection();
 
 // When the client is ready, run this code (only once)
 Bubble.once(Events.ClientReady, async (c) => {
-  /* eslint-disable no-console */
+  /* eslint-disable-next-line no-console */
   console.log(`Ready! Logged in as ${c.user.tag}`);
 
   try {
     const commandList: SlashCommandBuilder[] = [];
-    console.log(commandList);
     const commands = Commands as { [key: string]: Command };
     Object.keys(commands).map((name: string) => {
       Bubble.commands?.set(name.toLowerCase(), commands[name]);
@@ -44,7 +43,7 @@ Bubble.once(Events.ClientReady, async (c) => {
       });
     }
   } catch (error) {
-    /* eslint-disable no-console */
+    /* eslint-disable-next-line no-console */
     console.log(error);
   }
 });
@@ -55,6 +54,7 @@ Bubble.on(Events.InteractionCreate, async (interaction: Interaction) => {
   const command = interaction.client.commands.get(interaction.commandName);
 
   if (!command) {
+    /* eslint-disable-next-line no-console */
     console.log(`No command matching ${interaction.commandName} was found.`);
     return;
   }
@@ -62,7 +62,7 @@ Bubble.on(Events.InteractionCreate, async (interaction: Interaction) => {
   try {
     await command.execute(interaction);
   } catch (error) {
-    /* eslint-disable no-console */
+    /* eslint-disable-next-line no-console */
     console.error(error);
     const errMessage = {
       content: 'There was an error while executing this command!',
