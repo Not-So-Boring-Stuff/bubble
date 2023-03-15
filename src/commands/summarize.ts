@@ -12,19 +12,20 @@ export const Summarize: Command = {
     .setName('summarize')
     .setDescription('Summarizes last 50 messages.'),
   execute: async (interaction: ChatInputCommandInteraction) => {
+    await interaction.deferReply();
     const channel = await interaction.client.channels.fetch(
       interaction.channelId
     );
 
     if (!channel) {
-      interaction.reply({
+      await interaction.editReply({
         content: 'Available only in Text Channels'
       });
       return;
     }
 
     if (!(channel instanceof TextChannel)) {
-      interaction.reply({
+      await interaction.editReply({
         content: 'Available only in Text Channels'
       });
       return;
@@ -33,7 +34,7 @@ export const Summarize: Command = {
     const { lastMessageId } = channel;
 
     if (!channel || !lastMessageId) {
-      interaction.reply({
+      await interaction.editReply({
         content: 'Unable to summarize.'
       });
       return;
@@ -54,7 +55,7 @@ export const Summarize: Command = {
 
     const SummarizedMessage = await SummarizeChat(ParsedMessages);
 
-    interaction.reply({
+    await interaction.editReply({
       content: SummarizedMessage
     });
   }
