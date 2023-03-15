@@ -34,7 +34,7 @@ export const Summarize: Command = {
 
     if (!channel || !lastMessageId) {
       interaction.reply({
-        content: 'Available only in Text Channels'
+        content: 'Unable to summarize.'
       });
       return;
     }
