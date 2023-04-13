@@ -17,14 +17,7 @@ export const Summarize: Command = {
       interaction.channelId
     );
 
-    if (!channel) {
-      await interaction.editReply({
-        content: 'Available only in Text Channels'
-      });
-      return;
-    }
-
-    if (!(channel instanceof TextChannel)) {
+    if (!channel || !(channel instanceof TextChannel)) {
       await interaction.editReply({
         content: 'Available only in Text Channels'
       });
@@ -42,7 +35,7 @@ export const Summarize: Command = {
 
     let messages: Message[] = [];
     const fetchMessages = await channel.messages.fetch({
-      limit: 12,
+      limit: 50,
       before: lastMessageId
     });
 

@@ -1,5 +1,5 @@
 {
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "yarn@3.5.0",
   "name": "bubble-bot",
   "version": "1.0.0",
   "description": "An open-source discord bot",
@@ -15,7 +15,7 @@
     "lint-and-fix": "eslint . --ext .ts --fix"
   },
   "dependencies": {
-    "discord.js": "14.7.1",
+    "discord.js": "14.9.0",
     "dotenv": "16.0.3",
     "openai": "3.2.1"
   },
