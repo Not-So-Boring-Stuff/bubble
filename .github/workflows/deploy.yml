@@ -14,13 +14,12 @@ jobs:
 
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@v0.1.10
-        env:
-          with:
-            HOST: ${{ secrets.HOST }}
-            USERNAME: ${{ secrets.USERNAME }}
-            PASSWORD: ${{ secrets.PASSWORD }}
-            script: |
-              cd bubble
-              git pull origin main
-              pnpm install
-              pm2 restart bubble
+        with:
+          HOST: ${{ sec rets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          script: |
+            cd bubble
+            git pull origin main
+            pnpm install
+            pm2 restart bubble
