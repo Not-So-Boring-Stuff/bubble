@@ -1,5 +1,5 @@
 {
-  "packageManager": "yarn@3.5.0",
+  "packageManager": "pnpm@8.2.0",
   "name": "bubble-bot",
   "version": "1.0.0",
   "description": "An open-source discord bot",
@@ -8,9 +8,10 @@
   "author": "hiddenstack",
   "license": "MIT",
   "scripts": {
+    "preinstall": "npx only-allow pnpm", 
     "dev": "npx nodemon",
     "build": "rimraf ./build && tsc",
-    "start": "yarn run build && node build/index.js",
+    "start": "pnpm run build && node build/index.js",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix"
   },
